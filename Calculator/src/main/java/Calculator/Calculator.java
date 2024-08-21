@@ -19,7 +19,7 @@ public class Calculator {
         while (true) {
             System.out.println("Enter operation: ");
             String op = reader.next();
-            System.out.println("Calculator.Operation: \t\t\t\t\t\t\t: " + op);
+            System.out.println("Operation: \t\t\t\t\t\t\t: " + op);
 
             System.out.println("Enter next number: ");
             String num2 = reader.next();

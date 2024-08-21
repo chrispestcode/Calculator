@@ -1,7 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import Calculator.Operation;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 class OperationTest {
 

@@ -1,3 +1,5 @@
+import Calculator.Operation;
+import Calculator.OperationExecutor;
 import Handlers.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -47,7 +49,7 @@ class OperationExecutorTest {
                 operationExecutor.getOperationHandler(null)
         );
 
-        assertTrue(exception.getMessage().contains("The provided arithmetic Operation is unsupported."));
+        assertTrue(exception.getMessage().contains("The provided arithmetic Calculator.Operation is unsupported."));
     }
 
     @Test
