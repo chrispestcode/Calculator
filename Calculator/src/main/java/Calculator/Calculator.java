@@ -38,6 +38,7 @@ public class Calculator {
     }
 
     public Number calculate(String opStr, String str1, String str2) {
+
         try {
             Number num1 = NumberFormat.getInstance().parse(str1);
             Number num2 = NumberFormat.getInstance().parse(str2);
@@ -45,8 +46,9 @@ public class Calculator {
 
             return calculate(op, num1, num2);
         } catch (ParseException e) {
-            System.out.println("Error encountered while parsing inputs : \n Provide input as : <number1> <operation> <number2> " +
-                    "\n Example: 1 + 2");
+            System.out.println("Error encountered while parsing inputs : \n Provide input as : <number1>  OR <operation> " +
+                    "\n Example as Number: 1.3" +
+                    "\n Example as Operation: +");
         } catch (Exception e) {
             System.out.println("Error encountered during calculating result");
         }

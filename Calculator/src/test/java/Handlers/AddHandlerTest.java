@@ -12,7 +12,6 @@ public class AddHandlerTest {
         assertEquals(10, addHandler.executeOperation(7, 3));
     }
 
-
     @Test
     public void testAddIntegers_negative() throws Exception {
         assertEquals(-4, addHandler.executeOperation(-7, 3));
@@ -31,6 +30,12 @@ public class AddHandlerTest {
     @Test
     public void testAddLongs_overflow() throws Exception {
         assertThrows(ArithmeticException.class, () -> addHandler.executeOperation(Long.MAX_VALUE, 1L));
+    }
+
+
+    @Test
+    public void testAddLongAndInt() throws Exception {
+        assertEquals(5000000001L, addHandler.executeOperation(5000000000L, 1));
     }
 
     @Test
@@ -62,5 +67,10 @@ public class AddHandlerTest {
     @Test
     public void testAddFloats_overflow() throws Exception {
         assertThrows(ArithmeticException.class, () -> addHandler.executeOperation(Float.MAX_VALUE, Float.MAX_VALUE));
+    }
+
+    @Test
+    public void testAddLongAndDouble() throws Exception {
+        assertEquals(2.0, addHandler.executeOperation(1L , 1.0));
     }
 }

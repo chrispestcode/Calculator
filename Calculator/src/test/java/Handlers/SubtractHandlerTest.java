@@ -34,6 +34,12 @@ public class SubtractHandlerTest {
     }
 
     @Test
+    public void testSubtractLongAndInt() throws Exception {
+        assertEquals(5000000000L, subtractHandler.executeOperation(5000000001L, 1));
+    }
+
+
+    @Test
     public void testSubtractDoubles_positive() throws Exception {
         assertEquals(3.9, (Double) subtractHandler.executeOperation(7.2, 3.3), 0.000001);
     }
@@ -61,5 +67,10 @@ public class SubtractHandlerTest {
     @Test
     public void testSubtractFloats_underflow() throws Exception {
         assertThrows(ArithmeticException.class, () -> subtractHandler.executeOperation(-Float.MAX_VALUE, Float.MAX_VALUE));
+    }
+
+    @Test
+    public void testSubtractLongAndDouble() throws Exception {
+        assertEquals(1.0, subtractHandler.executeOperation(2L , 1.0));
     }
 }

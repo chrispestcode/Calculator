@@ -33,6 +33,11 @@ public class DivideHandlerTest {
     }
 
     @Test
+    public void testDivideLongAndInt() throws Exception {
+        assertEquals(2500000000L, divideHandler.executeOperation(5000000000L, 2));
+    }
+
+    @Test
     public void testDivideDoubles_positive() throws Exception {
         assertEquals(2.4, (Double) divideHandler.executeOperation(7.2, 3.0), 0.000001);
     }
@@ -70,5 +75,10 @@ public class DivideHandlerTest {
     @Test
     public void testDivideFloats_infinityCheck() throws Exception {
         assertThrows(ArithmeticException.class, () -> divideHandler.executeOperation(Float.MAX_VALUE, Float.MIN_VALUE));
+    }
+
+    @Test
+    public void testDivideLongAndDouble() throws Exception {
+        assertEquals(2.0, divideHandler.executeOperation(5L , 2.5));
     }
 }

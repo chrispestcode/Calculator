@@ -6,18 +6,30 @@ public class DivideHandler implements OperationHandler {
 
     @Override
     public Number executeOperation(Number num1, Number num2) throws Exception {
-        if (num1 instanceof Integer && num2 instanceof Integer) {
-            return divideIntegers((Integer) num1, (Integer) num2);
-        } else if (num1 instanceof Long && num2 instanceof Long) {
-            return divideLongs((Long) num1, (Long) num2);
-        } else if (num1 instanceof Double && num2 instanceof Double) {
-            return divideDoubles((Double) num1, (Double) num2);
-        } else if (num1 instanceof Float && num2 instanceof Float) {
-            return divideFloats((Float) num1, (Float) num2);
-        } else {
-            throw new UnsupportedOperationException("Unsupported numeric types: " +
-                    num1.getClass().getName() + " and " + num2.getClass().getName());
+
+        String switchType = getSwitchType(num1,num2);
+
+        switch (switchType) {
+            case "Integer_Integer":
+                return divideIntegers((Integer) num1, (Integer) num2);
+            case "Long_Long":
+                return divideLongs((Long) num1, (Long) num2);
+            case "Long_Integer", "Integer_Long":
+                return divideLongs(num1.longValue(), num2.longValue());
+            case "Double_Double", "Double_Float", "Float_Double":
+                return divideDoubles((Double) num1, (Double) num2);
+            case "Float_Float":
+                return divideFloats((Float) num1, (Float) num2);
+            case "Double_Long", "Long_Double":
+                return divideDoubles(num1.doubleValue(), num2.doubleValue());
+            default:
+                throw new UnsupportedOperationException("Unsupported numeric types: " +
+                        num1.getClass().getName() + " and " + num2.getClass().getName());
         }
+    }
+
+    private String getSwitchType(Number num1, Number num2) {
+        return num1.getClass().getSimpleName() + "_" + num2.getClass().getSimpleName();
     }
 
     private Integer divideIntegers(int num1, int num2) {

@@ -35,6 +35,11 @@ public class MultiplyHandlerTest {
     }
 
     @Test
+    public void testMultiplyLongAndInt() throws Exception {
+        assertEquals(5000000000L, multiplyHandler.executeOperation(2500000000L, 2));
+    }
+
+    @Test
     public void testMultiplyDoubles_positive() throws Exception {
         assertEquals(23.76, (Double) multiplyHandler.executeOperation(7.2, 3.3), 0.000001);
     }
@@ -62,5 +67,10 @@ public class MultiplyHandlerTest {
     @Test
     public void testMultiplyFloats_overflow() throws Exception {
         assertThrows(ArithmeticException.class, () -> multiplyHandler.executeOperation(Float.MAX_VALUE, Float.MAX_VALUE));
+    }
+
+    @Test
+    public void testMultiplyLongAndDouble() throws Exception {
+        assertEquals(10.0, multiplyHandler.executeOperation(2L , 5.0));
     }
 }
