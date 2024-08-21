@@ -20,28 +20,31 @@ It is designed to handle different numeric types and includes features to detect
 
 ### Clone the Repository
 
-git clone git@github.com:<user>/Calculator.git
-cd Calculator
+`git clone git@github.com:chrispestcode/Calculator.git`
+`cd Calculator`
 
 ### Running the application
 
-mvn clean install
-mvn exec:java -Dexec.mainClass="Calculator.Calculator"
+`mvn clean install`
+`mvn exec:java -Dexec.mainClass="Calculator.Calculator"`
 
 ### Sample Usage
 
+```
 "Enter first number: "
+
 Input : 3
 
 "Enter operation: "
+
 Input: +
 
 "Enter next number: "
+
 Input: 7
 
-"
-_____________________________________________________________________
-Result: 							: 10
-"
+________________________________
+Result: 10
+```
 
 ## Author: Tyree Chrisp (chri.tyree@gmail.com)
